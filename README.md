@@ -12,7 +12,7 @@ Lightweight image retrieval system for matching postage stamps under real-world 
 
 ## 📌 Project Description
 
-This project implements a content-based image retrieval (CBIR) system for postage stamps using classical computer vision methods.
+This project implements a content-based image retrieval system for postage stamps using classical computer vision methods.
 
 The system retrieves visually similar images based on local feature descriptors and keypoint matching techniques implemented with OpenCV. The proposed approach relies on classical computer vision algorithms without using deep learning models.
 
