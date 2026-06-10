@@ -1,10 +1,20 @@
 # Stamp Image Retrieval System
 
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.x-blue" />
+  <img src="https://img.shields.io/badge/OpenCV-CV2-green" />
+  <img src="https://img.shields.io/badge/Status-Educational-lightgrey" />
+</p>
+
+### Content-Based Image Retrieval using classical Computer Vision (BRISK / SIFT)
+
+Lightweight image retrieval system for matching postage stamps under real-world distortions and transformations.
+
 ## 📌 Project Description
 
-This project implements a content-based image retrieval system for postage stamps using classical computer vision methods.
+This project implements a content-based image retrieval (CBIR) system for postage stamps using classical computer vision methods.
 
-The system retrieves visually similar postage stamps based on local feature descriptors and keypoint matching techniques implemented with OpenCV. The proposed approach relies on classical computer vision algorithms without using deep learning models.
+The system retrieves visually similar images based on local feature descriptors and keypoint matching techniques implemented with OpenCV. The proposed approach relies on classical computer vision algorithms without using deep learning models.
 
 ---
 
@@ -16,13 +26,13 @@ The system retrieves visually similar postage stamps based on local feature desc
 
 ---
 
-## 🧠 System Overview
+## 🧠 System Architecture
 
-The system consists of three main modules:
+The system consists of three main components:
 
-- **StampDescriptor** – extracts key visual features from images
-- **StampMatcher** – performs feature matching between query and dataset images
-- **Search Engine (search.py)** – manages search pipeline and ranking results
+- **StampDescriptor** – extraction of local visual features
+- **StampMatcher** – feature matching and similarity estimation
+- **Search Engine (search.py)** – search pipeline and ranking of results
 
 ---
 
@@ -33,20 +43,20 @@ stamp-image-search/
 │
 ├── stamp_dataset/     # Reference stamp images
 ├── query/             # Query images and distortion tests
-├── stampdescriptor.py # Feature extraction
-├── stampmatcher.py    # Image matching
-├── search.py          # Search logic
+├── stampdescriptor.py # Feature extraction module
+├── stampmatcher.py    # Feature matching module
+├── search.py          # Search pipeline logic
 ├── main.py            # Entry point
-├── stamps.csv         # Metadata
+├── stamps.csv         # Dataset metadata
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- Postage stamp matching using local feature descriptors
+- Content-based image retrieval using local feature descriptors
 - Robustness to image transformations:
   - rotation
   - scaling
@@ -57,17 +67,17 @@ stamp-image-search/
 
 ---
 
-## 📊 Experimental Results
+## 📊 Experimental Evaluation
 
-The system was evaluated using multiple image distortions, including rotation, scaling, cropping, Gaussian blur, and real-world scene testing.
+The system was evaluated on multiple test cases, including synthetic distortions and real-world scenes.
 
-Experimental results demonstrated high robustness of the proposed approach, maintaining correct stamp retrieval in most test scenarios, even under significant image transformations.
+Experiments demonstrate that the proposed approach maintains high retrieval accuracy under significant geometric transformations and noise conditions.
 
 ---
 
 ## ▶️ How to Run
 
-Run the search system using:
+Run the system using:
 
 ```bash
 python main.py --db stamps.csv --stamp_dataset stamp_dataset --query query/test_original.jpg --sift 0
@@ -78,15 +88,9 @@ python main.py --db stamps.csv --stamp_dataset stamp_dataset --query query/test_
 - `--db` – path to metadata CSV file
 - `--stamp_dataset` – path to dataset images
 - `--query` – query image for matching
-- `--sift` – descriptor mode:
+- `--sift` – descriptor selection:
   - `0` – BRISK
   - `1` – SIFT
-
----
-## 📌 Notes
-
-This project was developed as part of a diploma thesis on image retrieval systems based on computer vision methods.
-
 
 ---
 
@@ -106,13 +110,20 @@ numpy
 ```
 
 ---
+## 📌 Notes
+
+This project was developed as part of a diploma thesis focused on image retrieval systems based on computer vision methods.
+
+---
 
 ## 🇺🇦 Опис українською
 
-Система пошуку поштових марок за зображенням, реалізована з використанням методів комп’ютерного зору на базі Python та OpenCV.
+Розроблена система забезпечує пошук схожих зображень поштових марок із використанням методів комп’ютерного зору на базі Python та бібліотеки OpenCV.
 
-Система виконує пошук найбільш схожої марки на основі локальних дескрипторів ознак (BRISK/SIFT) та алгоритмів зіставлення ключових точок.
+Пошук виконується на основі локальних дескрипторів ознак (BRISK та SIFT) із застосуванням алгоритмів зіставлення ключових точок та оцінки схожості між зображеннями.
 
-У межах дослідження проведено серію експериментів із поворотом, масштабуванням, обрізкою, розмиттям зображень, а також тестуванням у реальній сцені (марка на конверті).
+У межах дослідження проведено експериментальну перевірку роботи системи на наборах зображень із різними типами спотворень, зокрема поворотом, масштабуванням, обрізкою та розмиттям. Окремо проведено тестування системи в умовах, наближених до реальних сцен, із зображенням поштової марки на конверті, з додатковим застосуванням геометричних та фотометричних спотворень, зокрема повороту, масштабування та розмиття.
 
-Проєкт розроблено в рамках дипломної роботи.
+Отримані результати підтверджують стійкість та ефективність запропонованого підходу до геометричних перетворень та шумових спотворень.
+
+Проєкт виконано в рамках дипломної роботи з комп’ютерного зору.
